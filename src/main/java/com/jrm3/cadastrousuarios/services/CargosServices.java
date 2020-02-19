@@ -41,6 +41,7 @@ public class CargosServices {
 	
 	public void deletar(Long id) {
 		try {
+			buscar(id);
 			cargosRepository.delete(id);	
 		} catch (CargoNaoEncontradoException e) {
 			throw new CargoNaoEncontradoException("Cargo não pode ser encontrado!");
