@@ -55,5 +55,28 @@ public class UsuariosResources {
 		usuariosServices.atualizar(usuario);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@RequestMapping(value = "/{id}/cargo/{cargo_id}", method = RequestMethod.POST)
+	public ResponseEntity<Void> adicionarCargo(@PathVariable("id") Long usuarioId,
+			@PathVariable("cargo_id") Long cargoId){
+		
+		usuariosServices.salvarCargo(usuarioId, cargoId);
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+		
+		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value = "/{id}/perfil/{perfil_id}", method = RequestMethod.POST)
+	public ResponseEntity<Void> adicionarPerfil(@PathVariable("id") Long usuarioId,
+			@PathVariable("perfil_id") Long perfilId){
+		
+		usuariosServices.salvarPerfil(usuarioId, perfilId);
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+		
+		return ResponseEntity.created(uri).build();
+	}
+
 
 }

@@ -5,17 +5,13 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -39,13 +35,12 @@ public class Usuario {
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 
+	@JsonInclude(Include.NON_NULL)
 	@OneToOne
-	@JsonIgnore
 	private Cargo cargo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PERFIL_ID")
-	@JsonIgnore
+	@JsonInclude(Include.NON_NULL)
+	@OneToOne
 	private Perfil perfil;
 
 	@Enumerated(EnumType.STRING)

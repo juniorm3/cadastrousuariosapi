@@ -5,7 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jrm3.cadastrousuarios.domain.Cargo;
+import com.jrm3.cadastrousuarios.domain.Perfil;
 import com.jrm3.cadastrousuarios.domain.Usuario;
+import com.jrm3.cadastrousuarios.repository.CargosRepository;
+import com.jrm3.cadastrousuarios.repository.PerfilRepository;
 import com.jrm3.cadastrousuarios.repository.UsuarioRepository;
 import com.jrm3.cadastrousuarios.services.exceptions.UsuarioNaoEncontradoException;
 
@@ -14,6 +18,12 @@ public class UsuariosServices {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private CargosRepository cargosRepository;
+	
+	@Autowired
+	private PerfilRepository perfilRepository;
 
 	public List<Usuario> listar() {
 		return usuarioRepository.findAll();
@@ -49,5 +59,25 @@ public class UsuariosServices {
 
 	private void verifiarExistencaia(Usuario usuario) {
 		buscar(usuario.getId());
+	}
+	
+	public Usuario salvarCargo(Long usuarioId, Long cargoId) {
+		Usuario usuario = buscar(usuarioId);
+		
+		Cargo cargo = cargosRepository.findOne(cargoId);
+		
+		usuario.setCargo(cargo);		
+		
+		return usuarioRepository.save(usuario);
+	}
+	
+	public Usuario salvarPerfil(Long usuarioId, Long perfilId) {
+		Usuario usuario = buscar(usuarioId);
+		
+		Perfil perfil = perfilRepository.findOne(perfilId);
+		
+		usuario.setPerfil(perfil);	
+		
+		return usuarioRepository.save(usuario);
 	}
 }
