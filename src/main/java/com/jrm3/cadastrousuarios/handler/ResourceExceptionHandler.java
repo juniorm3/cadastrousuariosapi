@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.jrm3.cadastrousuarios.domain.DetalhesErro;
 import com.jrm3.cadastrousuarios.services.exceptions.CargoNaoEncontradoException;
 import com.jrm3.cadastrousuarios.services.exceptions.PerfilNaoEncontradoException;
+import com.jrm3.cadastrousuarios.services.exceptions.UsuarioNaoEncontradoException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -32,6 +33,17 @@ public class ResourceExceptionHandler {
 		DetalhesErro erro = new DetalhesErro();
 		erro.setStatus(404L);
 		erro.setDescricao("O Perfil não pode ser encontrado!");
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
+	}
+	
+	@ExceptionHandler(UsuarioNaoEncontradoException.class)
+	public ResponseEntity<DetalhesErro> handlerUsuarioNaoEncontradoException
+	(UsuarioNaoEncontradoException e, HttpServletRequest request) {
+		
+		DetalhesErro erro = new DetalhesErro();
+		erro.setStatus(404L);
+		erro.setDescricao("O Usuario não pode ser encontrado!");
 		
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
 	}

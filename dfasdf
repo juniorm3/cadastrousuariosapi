@@ -1,0 +1,35 @@
+[33mcommit ff97b57a95f3bdec031f4bac83166386a341d784[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Mario <juniorm3@msn.com>
+Date:   Tue Feb 18 22:57:11 2020 -0300
+
+    Criado gerenciamento de Cargos
+
+[33mcommit 7eddfe31c5f35b6f781ef6415a0e448e5db0bd22[m
+Author: Mario <juniorm3@msn.com>
+Date:   Tue Feb 18 20:57:41 2020 -0300
+
+    Criação de Interfaces para repositorios JPA
+
+[33mcommit c31372e38542e2818e3fd000b0dd0f2ee1eaaa28[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Mario <juniorm3@msn.com>
+Date:   Mon Feb 17 23:23:17 2020 -0300
+
+    Criando classes de resources
+
+[33mcommit 7924084346604b8e7e34273c791fea8d3dcd094e[m
+Author: Mario <juniorm3@msn.com>
+Date:   Mon Feb 17 23:15:36 2020 -0300
+
+    Criando entidades
+
+[33mcommit 7c4cfa979e02ded6091ed3b88618eee2f0b91488[m
+Author: Mario <juniorm3@msn.com>
+Date:   Mon Feb 17 21:34:46 2020 -0300
+
+    Inclusão de arquivo README
+
+[33mcommit b4572d63f87bda629a1b49d5054bd4627d9e81b9[m
+Author: Mario <juniorm3@msn.com>
+Date:   Mon Feb 17 21:30:24 2020 -0300
+
+    Criando projeto para gerenciamento de usuarios
