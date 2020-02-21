@@ -45,7 +45,7 @@ public class Usuario {
 
 	@Enumerated(EnumType.STRING)
 	@JsonInclude(Include.NON_NULL)
-	private Status status;
+	private StatusRegistro statusRegistro = StatusRegistro.ATIVO;
 
 	public Long getId() {
 		return id;
@@ -103,12 +103,13 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	public Status getStatus() {
-		return status;
+	public StatusRegistro getStatusRegistro() {
+		return statusRegistro;
 	}
 
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setStatusRegistro(StatusRegistro statusRegistro) {
+		this.statusRegistro = statusRegistro;
 	}
+
 
 }
