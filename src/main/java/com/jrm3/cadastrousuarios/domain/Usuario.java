@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,11 +38,13 @@ public class Usuario {
 	private Date dataNascimento;
 
 	@JsonInclude(Include.NON_NULL)
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "CARGO_ID")
 	private Cargo cargo;
 
 	@JsonInclude(Include.NON_NULL)
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "PEFIL_ID")
 	private Perfil perfil;
 
 	@Enumerated(EnumType.STRING)
