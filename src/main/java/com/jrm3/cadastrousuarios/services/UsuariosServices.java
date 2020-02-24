@@ -11,6 +11,7 @@ import com.jrm3.cadastrousuarios.domain.Usuario;
 import com.jrm3.cadastrousuarios.repository.CargosRepository;
 import com.jrm3.cadastrousuarios.repository.PerfilRepository;
 import com.jrm3.cadastrousuarios.repository.UsuarioRepository;
+import com.jrm3.cadastrousuarios.services.exceptions.UsuarioExistenteException;
 import com.jrm3.cadastrousuarios.services.exceptions.UsuarioNaoEncontradoException;
 
 @Service
@@ -40,7 +41,14 @@ public class UsuariosServices {
 	}
 
 	public Usuario salvar(Usuario usuario) {
-		usuario.setId(null);
+		if(usuario.getId() != null) {
+			Usuario u = usuarioRepository.findOne(usuario.getId());
+			
+			if(u != null) {
+				throw new UsuarioExistenteException("O usuario já existe!");
+			}
+		}
+
 		return usuarioRepository.save(usuario);
 	}
 

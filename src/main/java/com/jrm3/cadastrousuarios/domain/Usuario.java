@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -44,7 +43,7 @@ public class Usuario {
 
 	@JsonInclude(Include.NON_NULL)
 	@ManyToOne
-	@JoinColumn(name = "PEFIL_ID")
+	@JoinColumn(name = "PERFIL_ID")
 	private Perfil perfil;
 
 	@Enumerated(EnumType.STRING)
