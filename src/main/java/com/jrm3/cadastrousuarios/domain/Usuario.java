@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,17 +26,21 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty(message = "O campo nome é de preenchimento obrigatório!")
 	private String nome;
 
 	@JsonInclude(Include.NON_NULL)
+	@NotEmpty(message = "O campo CPF é de preechimento obrigatório!")
 	private String cpf;
 
 	@Enumerated(EnumType.STRING)
 	@JsonInclude(Include.NON_NULL)
+	@NotNull(message = "O campo SEXO é de preenchimento obirgatório!")
 	private Sexo sexo;
 
 	@JsonInclude(Include.NON_NULL)
 	@JsonFormat(pattern = "dd/MM/yyyy")
+	@NotNull(message = "O campo Data de Nascimento é de peencimento obrigatório!")
 	private Date dataNascimento;
 
 	@JsonInclude(Include.NON_NULL)

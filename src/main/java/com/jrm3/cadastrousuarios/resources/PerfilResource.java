@@ -3,6 +3,8 @@ package com.jrm3.cadastrousuarios.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +31,7 @@ public class PerfilResource {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> salvar(@RequestBody Perfil perfil) {
+	public ResponseEntity<Void> salvar(@Valid @RequestBody Perfil perfil) {
 		perfil = perfilServices.salvar(perfil);
 
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(perfil.getId()).toUri();
