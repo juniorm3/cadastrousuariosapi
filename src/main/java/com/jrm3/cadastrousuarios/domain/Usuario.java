@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -33,7 +34,7 @@ public class Usuario {
 	private Sexo sexo;
 
 	@JsonInclude(Include.NON_NULL)
-	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 
 	@JsonInclude(Include.NON_NULL)
