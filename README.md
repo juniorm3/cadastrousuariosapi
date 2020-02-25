@@ -21,4 +21,10 @@ consumo:
 - http://localhost:8080/usuarios/{id}/cargo/{cargoId} - POST : insere cargo para usuario
 - http://localhost:8080/usuarios/{id}/perfil/{perfilId} - POST : insere perfil para usuario
 
+Projeto utiliza Autenticação com Spring Security.
+usuario: desafio
+password: s3nh4
+
+- Para utiliar é necessáio informar Basic Auth
+
 
