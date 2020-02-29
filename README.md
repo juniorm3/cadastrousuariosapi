@@ -25,6 +25,6 @@ Projeto utiliza Autenticação com Spring Security.
 usuario: desafio
 password: s3nh4
 
-- Para utiliar é necessáio informar Basic Auth
+- Para utilisar é necessáio informar Basic Auth
 
 
